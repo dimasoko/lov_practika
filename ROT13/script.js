@@ -22,10 +22,10 @@ function getTransformedCharIfFound(charToTransform, alphabetArray) {
             const newIndex = (i + ROT_SHIFT) % ALPHABET_LENGTH; // а расшифровка и шифровка то одинаковые!
             const transformed = alphabetArray[newIndex];
             const logEntry = `${charToTransform} - 13 = ${transformed}`;
-            return { char: transformed, log: logEntry }; // Объект без found: true, если найдено
+            return { char: transformed, log: logEntry }; 
         }
     }
-    return null; // null, если не найдено в этом алфавите
+    return null;
 }
 
 function transformCharWithROT13(char) {
