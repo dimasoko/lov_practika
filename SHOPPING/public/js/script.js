@@ -70,13 +70,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const cardsHTML = validProducts.map(product => createProductCard(product)).join('');
         productsContainer.innerHTML = cardsHTML;
         
-        // Показываем информацию о количестве найденных товаров
         if (searchQuery) {
             console.log(`Найдено ${validProducts.length} товаров по запросу "${searchQuery}"`);
         }
     }          
     function loadProducts(searchQuery = '') {
-        // Предотвращаем множественные одновременные запросы
         if (isLoading) {
             console.log('Запрос уже выполняется, ожидайте...');
             return;

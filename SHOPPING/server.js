@@ -20,7 +20,7 @@ function fetchFromAPI(apiPath, callback) {
         if (apiRes.statusCode < 200 || apiRes.statusCode >= 300) {
         console.error(`API вернул статус: ${apiRes.statusCode}`);
         return callback(new Error(`HTTP ${apiRes.statusCode}`), null);
-        }    
+        } 
         apiRes.on('data', (chunk) => {
         data += chunk;
         });    
