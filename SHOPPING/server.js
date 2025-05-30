@@ -8,12 +8,12 @@ const PUBLIC = path.join(__dirname, 'public');
 const API_BASE = 'https://dummyjson.com';
 
 function fetchFromAPI(apiPath, callback) {
-    const apiUrl = `${API_BASE}${apiPath}`;    
+    const apiUrl = `${API_BASE}${apiPath}`;
     https.get(apiUrl, (apiRes) => {
         let data = '';
         apiRes.on('data', (chunk) => {
         data += chunk;
-        });    
+        });
         apiRes.on('end', () => {
         try {
             const jsonData = JSON.parse(data);
@@ -52,7 +52,6 @@ const server = http.createServer((req, res) => {
     
     if (pathname.startsWith('/api/')) {
         res.setHeader('Content-Type', 'application/json; charset=utf-8');
-        
         if (pathname === '/api/products') {
         if (query.q) {
             fetchFromAPI(`/products/search?q=${encodeURIComponent(query.q)}`, (err, data) => {
@@ -102,6 +101,5 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(PORT, () => {
-  console.log(`Сервер запущен на порту ${PORT}`);
-  console.log(`Откройте http://localhost:${PORT} в браузере`);
+    console.log(`Сервер запущен на порту ${PORT}`);
 });
